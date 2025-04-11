@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Eureka Comidas Rápidas</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script>
-    function redirigirPago(producto) {
-      // Abre Mercado Pago
-      window.open("https://www.mercadopago.com.ar/home", "_blank");
-      // Redirige a WhatsApp con mensaje personalizado
-      setTimeout(() => {
-        const mensaje = `Hola, realicé el pago por alias Eureka123 por una ${producto}. Adjunto comprobante. Es para [delivery/retiro] y mi ubicación es...`;
-        const url = `https://wa.me/543804201731?text=${encodeURIComponent(mensaje)}`;
-        window.location.href = url;
-      }, 1000);
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Íconos Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-B4dIYHKNsJZc+0NfX9s4YyHv+VhXsFHz3UO9dGZlfEdAzkzXCNK+1WZGCf0ZT3lUX1oX1uIjJgR8jT9Mr3Ck5Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Música desde YouTube -->
+  <style>
+    .musica {
+      text-align: center;
+      margin: 20px 0;
     }
-  </script>
+
+    .musica iframe {
+      border-radius: 15px;
+      max-width: 100%;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="img/logo.png" alt="Logo de Eureka" class="logo" style="max-height: 140px;" />
+    <img src="img/logo.png" alt="Logo de Eureka" class="logo">
     <h1>Bienvenido a Eureka</h1>
     <p>¡Pedí rico, rápido y al toque!</p>
   </header>
@@ -30,76 +35,72 @@
     <h2>Nuestro Menú</h2>
 
     <div class="producto">
-      <img src="img/mila_xxl.jpg" alt="Mila XXL" />
+      <img src="img/mila_xxl.jpg" alt="Mila XXL">
       <h3>Mila XXL con papas</h3>
       <p>$16.000</p>
-      <button onclick="redirigirPago('Mila XXL con papas')" class="boton">Pagar</button>
+      <a href="https://mpago.la/1aBCdEf" class="boton" target="_blank">Pagar</a>
     </div>
 
     <div class="producto">
-      <img src="img/chaquena.jpg" alt="Burger Chaqueña" />
+      <img src="img/chaquena.jpg" alt="Burger Chaqueña">
       <h3>Burger Chaqueña</h3>
       <p>$6.000</p>
-      <button onclick="redirigirPago('Burger Chaqueña')" class="boton">Pagar</button>
+      <a href="https://mpago.la/2fGHjKl" class="boton" target="_blank">Pagar</a>
     </div>
 
     <div class="producto">
-      <img src="img/flow_cheddar.jpg" alt="Burger Flow Cheddar" />
+      <img src="img/flow_cheddar.jpg" alt="Burger Flow Cheddar">
       <h3>Burger Flow Cheddar</h3>
       <p>$6.000</p>
-      <button onclick="redirigirPago('Burger Flow Cheddar')" class="boton">Pagar</button>
+      <a href="https://mpago.la/3mNoPQr" class="boton" target="_blank">Pagar</a>
     </div>
 
     <div class="producto">
-      <img src="img/milanesa_especial.jpg" alt="Milanesa Especial" />
+      <img src="img/milanesa_especial.jpg" alt="Milanesa Especial">
       <h3>Milanesa Especial con papas</h3>
       <p>$7.000</p>
-      <button onclick="redirigirPago('Milanesa Especial con papas')" class="boton">Pagar</button>
+      <a href="https://mpago.la/4sTuVwx" class="boton" target="_blank">Pagar</a>
     </div>
 
     <div class="producto">
-      <img src="img/lomo_xl.jpg" alt="Lomo XL" />
+      <img src="img/lomo_xl.jpg" alt="Lomo XL">
       <h3>Lomo XL con papas fritas</h3>
       <p>$13.000</p>
-      <button onclick="redirigirPago('Lomo XL con papas fritas')" class="boton">Pagar</button>
+      <a href="https://mpago.la/5yZaBcd" class="boton" target="_blank">Pagar</a>
     </div>
 
     <div class="producto">
-      <img src="img/eureka.jpg" alt="Burger Eureka" />
+      <img src="img/eureka.jpg" alt="Burger Eureka">
       <h3>Burger Eureka</h3>
       <p>$6.500</p>
-      <button onclick="redirigirPago('Burger Eureka')" class="boton">Pagar</button>
+      <a href="https://mpago.la/6eFgHij" class="boton" target="_blank">Pagar</a>
     </div>
 
     <div class="producto">
-      <img src="img/espacial.jpg" alt="Burger Espacial" />
+      <img src="img/espacial.jpg" alt="Burger Espacial">
       <h3>Burger Espacial</h3>
       <p>$5.500</p>
-      <button onclick="redirigirPago('Burger Espacial')" class="boton">Pagar</button>
+      <a href="https://mpago.la/7KlMnop" class="boton" target="_blank">Pagar</a>
     </div>
+  </section>
+
+  <section class="musica">
+    <h2>¡Ponete en modo Eureka!</h2>
+    <iframe width="300" height="200" src="https://www.youtube.com/embed/CTRO7fTrZgQ?autoplay=1&loop=1&playlist=CTRO7fTrZgQ" title="Eureka Music" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </section>
 
   <footer>
     <p><strong>Dirección del local:</strong> Barrio Hospital sector 4, calle Puerto Argentino</p>
     <p><strong>Alias para pagos:</strong> Eureka123</p>
-    <p>Por favor, enviar el comprobante de pago al WhatsApp indicando si es para delivery o retiro, y en caso de delivery, enviar ubicación.</p>
+    <p>Una vez que realices el pago, enviá tu comprobante por WhatsApp indicando si es para delivery o retiro, y tu ubicación si corresponde.</p>
     <a href="https://wa.me/543804201731" target="_blank">Contactar por WhatsApp</a> |
     <a href="https://instagram.com/eureka.lomoslr" target="_blank">Nuestro Instagram</a>
   </footer>
 
   <!-- Botones flotantes -->
   <div class="boton-flotante">
-    <a href="https://wa.me/543804201731" target="_blank" title="WhatsApp">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="https://instagram.com/eureka.lomoslr" class="instagram" target="_blank" title="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
+    <a href="https://wa.me/543804201731" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/eureka.lomoslr" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
-
-  <!-- Música de fondo YouTube embebida -->
-  <iframe width="0" height="0" style="display:none;" 
-    src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&loop=1&playlist=dQw4w9WgXcQ&mute=1" 
-    frameborder="0" allow="autoplay"></iframe>
 </body>
 </html>
