@@ -2,14 +2,23 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eureka Comidas Rápidas</title>
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       background: linear-gradient(to bottom, #ffe082, #fff8e1);
       margin: 0;
       padding: 0;
       color: #333;
+      max-width: 1200px;
+      margin: auto;
+      position: relative;
     }
 
     header {
@@ -22,13 +31,19 @@
     .logo {
       max-height: 100px;
       margin-bottom: 10px;
+      border-radius: 15px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 30px;
     }
 
     .menu {
-      padding: 20px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      padding: 10px;
     }
 
     .producto {
@@ -77,74 +92,101 @@
       margin: 0 10px;
       text-decoration: none;
     }
+
+    /* Botones flotantes */
+    .boton-flotante {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+
+    .boton-flotante a {
+      display: block;
+      margin-bottom: 10px;
+      width: 50px;
+      height: 50px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 50px;
+      font-size: 24px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      text-decoration: none;
+    }
+
+    .boton-flotante a.instagram {
+      background: #E1306C;
+    }
+
+    audio {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .producto {
+        width: 90%;
+      }
+    }
   </style>
+
+  <!-- Iconos (usando fontawesome CDN) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+  <!-- Música de fondo -->
+  <audio autoplay loop>
+    <source src="audio/musica.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
   <header>
     <img src="img/logo.png" alt="Logo de Eureka" class="logo">
     <h1>Bienvenido a Eureka</h1>
     <p>¡Pedí rico, rápido y al toque!</p>
   </header>
 
+  <h2>Nuestro Menú</h2>
   <section class="menu">
-    <h2>Nuestro Menú</h2>
-
     <div class="producto">
       <img src="img/mila_xxl.jpg" alt="Mila XXL">
       <h3>Mila XXL con papas</h3>
       <p>$16.000</p>
-      <a href="https://wa.me/543804201731?text=Hola,+realicé+el+pago+por+alias+Eureka.123+por+una+Mila+XXL+con+papas.+Adjunto+comprobante.+Es+para+[delivery/retiro]+y+mi+ubicación+es..." class="boton" target="_blank">Pagar</a>
+      <a href="https://www.mercadopago.com.ar" class="boton" target="_blank">Pagar</a>
     </div>
 
     <div class="producto">
       <img src="img/chaquena.jpg" alt="Burger Chaqueña">
       <h3>Burger Chaqueña</h3>
       <p>$6.000</p>
-      <a href="https://wa.me/543804201731?text=Hola,+realicé+el+pago+por+alias+Eureka.123+por+una+Burger+Chaqueña.+Adjunto+comprobante..." class="boton" target="_blank">Pagar</a>
+      <a href="https://www.mercadopago.com.ar" class="boton" target="_blank">Pagar</a>
     </div>
 
     <div class="producto">
       <img src="img/flow_cheddar.jpg" alt="Burger Flow Cheddar">
       <h3>Burger Flow Cheddar</h3>
       <p>$6.000</p>
-      <a href="https://wa.me/543804201731?text=Hola,+realicé+el+pago+por+alias+Eureka.123+por+una+Burger+Flow+Cheddar.+Adjunto+comprobante..." class="boton" target="_blank">Pagar</a>
+      <a href="https://www.mercadopago.com.ar" class="boton" target="_blank">Pagar</a>
     </div>
 
-    <div class="producto">
-      <img src="img/milanesa_especial.jpg" alt="Milanesa Especial">
-      <h3>Milanesa Especial con papas</h3>
-      <p>$7.000</p>
-      <a href="https://wa.me/543804201731?text=Hola,+realicé+el+pago+por+alias+Eureka.123+por+una+Milanesa+Especial.+Adjunto+comprobante..." class="boton" target="_blank">Pagar</a>
-    </div>
-
-    <div class="producto">
-      <img src="img/lomo_xl.jpg" alt="Lomo XL">
-      <h3>Lomo XL con papas fritas</h3>
-      <p>$13.000</p>
-      <a href="https://wa.me/543804201731?text=Hola,+realicé+el+pago+por+alias+Eureka.123+por+un+Lomo+XL.+Adjunto+comprobante..." class="boton" target="_blank">Pagar</a>
-    </div>
-
-    <div class="producto">
-      <img src="img/eureka.jpg" alt="Burger Eureka">
-      <h3>Burger Eureka</h3>
-      <p>$6.500</p>
-      <a href="https://wa.me/543804201731?text=Hola,+realicé+el+pago+por+alias+Eureka.123+por+una+Burger+Eureka.+Adjunto+comprobante..." class="boton" target="_blank">Pagar</a>
-    </div>
-
-    <div class="producto">
-      <img src="img/espacial.jpg" alt="Burger Espacial">
-      <h3>Burger Espacial</h3>
-      <p>$5.500</p>
-      <a href="https://wa.me/543804201731?text=Hola,+realicé+el+pago+por+alias+Eureka.123+por+una+Burger+Espacial.+Adjunto+comprobante..." class="boton" target="_blank">Pagar</a>
-    </div>
+    <!-- Agregá más productos como estos -->
   </section>
 
   <footer>
     <p><strong>Dirección del local:</strong> Barrio Hospital sector 4, calle Puerto Argentino</p>
-    <p><strong>Alias para pagos:</strong> Eureka.123</p>
+    <p><strong>Alias para pagos:</strong> <b>Eureka.123</b></p>
     <p>Por favor, enviar el comprobante de pago al WhatsApp indicando si es para delivery o retiro, y en caso de delivery, enviar ubicación.</p>
     <a href="https://wa.me/543804201731" target="_blank">Contactar por WhatsApp</a> |
-    <a href="https://instagram.com/triple.astudio" target="_blank">Nuestro Instagram</a>
+    <a href="https://instagram.com/eureka.lomoslr" target="_blank">Nuestro Instagram</a>
   </footer>
+
+  <!-- Botones flotantes -->
+  <div class="boton-flotante">
+    <a href="https://wa.me/543804201731" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/eureka.lomoslr" target="_blank" class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+  </div>
+
 </body>
 </html>
