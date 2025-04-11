@@ -1,216 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>Eureka Comidas Rápidas</title>
-  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-  <style>
-    * { box-sizing: border-box; }
-
-    body {
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(to bottom, #ffe082, #fff8e1);
-      margin: 0;
-      padding: 0;
-      color: #333;
-      max-width: 1200px;
-      margin: auto;
-      position: relative;
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script>
+    function redirigirPago(producto) {
+      // Abre Mercado Pago
+      window.open("https://www.mercadopago.com.ar/home", "_blank");
+      // Redirige a WhatsApp con mensaje personalizado
+      setTimeout(() => {
+        const mensaje = `Hola, realicé el pago por alias Eureka123 por una ${producto}. Adjunto comprobante. Es para [delivery/retiro] y mi ubicación es...`;
+        const url = `https://wa.me/543804201731?text=${encodeURIComponent(mensaje)}`;
+        window.location.href = url;
+      }, 1000);
     }
-
-    header {
-      background: #d84315;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .logo {
-      max-height: 100px;
-      margin-bottom: 10px;
-      border-radius: 15px;
-    }
-
-    h2 {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    .menu {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 10px;
-    }
-
-    .producto {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin: 15px;
-      padding: 15px;
-      width: 280px;
-      text-align: center;
-    }
-
-    .producto img {
-      max-width: 100%;
-      border-radius: 10px;
-    }
-
-    .producto h3 {
-      margin: 10px 0 5px 0;
-    }
-
-    .producto p {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .boton {
-      display: inline-block;
-      margin-top: 10px;
-      background: #2e7d32;
-      color: white;
-      padding: 10px 15px;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    footer a {
-      color: #4fc3f7;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    .boton-flotante {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 100;
-    }
-
-    .boton-flotante a {
-      display: block;
-      margin-bottom: 10px;
-      width: 50px;
-      height: 50px;
-      background: #25D366;
-      color: white;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 50px;
-      font-size: 24px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      text-decoration: none;
-    }
-
-    .boton-flotante a.instagram {
-      background: #E1306C;
-    }
-
-    audio {
-      display: none;
-    }
-
-    @media (max-width: 600px) {
-      .producto {
-        width: 90%;
-      }
-    }
-  </style>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  </script>
 </head>
 <body>
-
-  <audio autoplay loop>
-    <source src="audio/musica.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio HTML5.
-  </audio>
-
   <header>
-    <img src="img/logo.png" alt="Logo de Eureka" class="logo">
+    <img src="img/logo.png" alt="Logo de Eureka" class="logo" style="max-height: 140px;" />
     <h1>Bienvenido a Eureka</h1>
-    <p>¡Sabores Callejeros que conquistan!</p>
+    <p>¡Pedí rico, rápido y al toque!</p>
   </header>
 
-  <h2>Nuestro Menú</h2>
   <section class="menu">
+    <h2>Nuestro Menú</h2>
+
     <div class="producto">
-      <img src="img/mila_xxl.jpg" alt="Mila XXL">
+      <img src="img/mila_xxl.jpg" alt="Mila XXL" />
       <h3>Mila XXL con papas</h3>
       <p>$16.000</p>
-      <a href="https://www.mercadopago.com.ar/transfer?alias=Eureka123" class="boton" target="_blank">Pagar</a>
+      <button onclick="redirigirPago('Mila XXL con papas')" class="boton">Pagar</button>
     </div>
 
     <div class="producto">
-      <img src="img/chaquena.jpg" alt="Burger Chaqueña">
+      <img src="img/chaquena.jpg" alt="Burger Chaqueña" />
       <h3>Burger Chaqueña</h3>
       <p>$6.000</p>
-      <a href="https://www.mercadopago.com.ar/transfer?alias=Eureka123" class="boton" target="_blank">Pagar</a>
+      <button onclick="redirigirPago('Burger Chaqueña')" class="boton">Pagar</button>
     </div>
 
     <div class="producto">
-      <img src="img/flow_cheddar.jpg" alt="Burger Flow Cheddar">
+      <img src="img/flow_cheddar.jpg" alt="Burger Flow Cheddar" />
       <h3>Burger Flow Cheddar</h3>
       <p>$6.000</p>
-      <a href="https://www.mercadopago.com.ar/transfer?alias=Eureka123" class="boton" target="_blank">Pagar</a>
+      <button onclick="redirigirPago('Burger Flow Cheddar')" class="boton">Pagar</button>
     </div>
 
     <div class="producto">
-      <img src="img/milanesa_especial.jpg" alt="Milanesa Especial">
+      <img src="img/milanesa_especial.jpg" alt="Milanesa Especial" />
       <h3>Milanesa Especial con papas</h3>
       <p>$7.000</p>
-      <a href="https://www.mercadopago.com.ar/transfer?alias=Eureka123" class="boton" target="_blank">Pagar</a>
+      <button onclick="redirigirPago('Milanesa Especial con papas')" class="boton">Pagar</button>
     </div>
 
     <div class="producto">
-      <img src="img/lomo_xl.jpg" alt="Lomo XL">
+      <img src="img/lomo_xl.jpg" alt="Lomo XL" />
       <h3>Lomo XL con papas fritas</h3>
       <p>$13.000</p>
-      <a href="https://www.mercadopago.com.ar/transfer?alias=Eureka123" class="boton" target="_blank">Pagar</a>
+      <button onclick="redirigirPago('Lomo XL con papas fritas')" class="boton">Pagar</button>
     </div>
 
     <div class="producto">
-      <img src="img/eureka.jpg" alt="Burger Eureka">
+      <img src="img/eureka.jpg" alt="Burger Eureka" />
       <h3>Burger Eureka</h3>
       <p>$6.500</p>
-      <a href="https://www.mercadopago.com.ar/transfer?alias=Eureka123" class="boton" target="_blank">Pagar</a>
+      <button onclick="redirigirPago('Burger Eureka')" class="boton">Pagar</button>
     </div>
 
     <div class="producto">
-      <img src="img/espacial.jpg" alt="Burger Espacial">
+      <img src="img/espacial.jpg" alt="Burger Espacial" />
       <h3>Burger Espacial</h3>
       <p>$5.500</p>
-      <a href="https://www.mercadopago.com.ar/transfer?alias=Eureka123" class="boton" target="_blank">Pagar</a>
+      <button onclick="redirigirPago('Burger Espacial')" class="boton">Pagar</button>
     </div>
   </section>
 
   <footer>
     <p><strong>Dirección del local:</strong> Barrio Hospital sector 4, calle Puerto Argentino</p>
-    <p><strong>Alias para pagos:</strong> <b>Eureka123</b></p>
+    <p><strong>Alias para pagos:</strong> Eureka123</p>
     <p>Por favor, enviar el comprobante de pago al WhatsApp indicando si es para delivery o retiro, y en caso de delivery, enviar ubicación.</p>
     <a href="https://wa.me/543804201731" target="_blank">Contactar por WhatsApp</a> |
     <a href="https://instagram.com/eureka.lomoslr" target="_blank">Nuestro Instagram</a>
   </footer>
 
+  <!-- Botones flotantes -->
   <div class="boton-flotante">
-    <a href="https://wa.me/543804201731" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://instagram.com/eureka.lomoslr" target="_blank" class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/543804201731" target="_blank" title="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://instagram.com/eureka.lomoslr" class="instagram" target="_blank" title="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
   </div>
 
-<!-- Música de fondo desde YouTube -->
-<iframe width="0" height="0" style="display:none;" 
-  src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&loop=1&playlist=dQw4w9WgXcQ&mute=1" 
-  frameborder="0" allow="autoplay"></iframe>
-
+  <!-- Música de fondo YouTube embebida -->
+  <iframe width="0" height="0" style="display:none;" 
+    src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&loop=1&playlist=dQw4w9WgXcQ&mute=1" 
+    frameborder="0" allow="autoplay"></iframe>
 </body>
 </html>
