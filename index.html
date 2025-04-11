@@ -15,12 +15,27 @@
   <style>
     .musica {
       text-align: center;
-      margin: 20px 0;
+      margin: 30px 0;
     }
 
     .musica iframe {
       border-radius: 15px;
       max-width: 100%;
+      display: none;
+    }
+
+    .play-musica {
+      background: #d84315;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .play-musica:hover {
+      background: #bf360c;
     }
   </style>
 </head>
@@ -86,7 +101,9 @@
 
   <section class="musica">
     <h2>¡Ponete en modo Eureka!</h2>
-    <iframe width="300" height="200" src="https://www.youtube.com/embed/CTRO7fTrZgQ?autoplay=1&loop=1&playlist=CTRO7fTrZgQ" title="Eureka Music" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <button class="play-musica" onclick="reproducirMusica()">Reproducir música</button>
+    <br><br>
+    <iframe id="musicaFrame" width="300" height="200" src="https://www.youtube.com/embed/CTRO7fTrZgQ?autoplay=1&loop=1&playlist=CTRO7fTrZgQ" title="Eureka Music" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </section>
 
   <footer>
@@ -102,5 +119,12 @@
     <a href="https://wa.me/543804201731" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <a href="https://instagram.com/eureka.lomoslr" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
+
+  <!-- Script para mostrar el reproductor de música -->
+  <script>
+    function reproducirMusica() {
+      document.getElementById("musicaFrame").style.display = "block";
+    }
+  </script>
 </body>
 </html>
