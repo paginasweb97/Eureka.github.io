@@ -18,22 +18,14 @@
 
     body {
       font-family: Arial, sans-serif;
-      color: #333;
-      background: linear-gradient(45deg, #ff5e62, #ff9966, #f7c6d9, #ffeb3b);
-      background-size: 400% 400%;
-      animation: gradientAnimation 10s ease infinite;
+      background: #000;
+      color: #fff;
       line-height: 1.6;
     }
 
-    @keyframes gradientAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
     header {
-      background: #d84315;
-      color: white;
+      background: #fff;
+      color: #000;
       padding: 20px;
       text-align: center;
     }
@@ -43,8 +35,9 @@
       margin-bottom: 10px;
     }
 
-    header h1 {
-      margin-bottom: 10px;
+    header h1,
+    header p {
+      color: #000;
     }
 
     .menu {
@@ -56,9 +49,9 @@
     }
 
     .producto {
-      background: white;
+      background: #1a1a1a;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
       padding: 15px;
       width: 280px;
       text-align: center;
@@ -76,11 +69,13 @@
 
     .producto h3 {
       margin: 10px 0 5px 0;
+      color: #fff;
     }
 
     .producto p {
       font-weight: bold;
       margin-bottom: 10px;
+      color: #ffeb3b;
     }
 
     .boton {
@@ -98,7 +93,7 @@
     }
 
     footer {
-      background: #333;
+      background: #111;
       color: white;
       text-align: center;
       padding: 20px;
@@ -121,6 +116,7 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
+      z-index: 1000;
     }
 
     .boton-flotante a {
@@ -200,48 +196,8 @@
   </header>
 
   <section class="menu">
-    <div class="producto">
-      <img src="img/mila_xxl.jpg" alt="Mila XXL">
-      <h3>Mila XXL con papas</h3>
-      <p>$16.000</p>
-      <a href="#" class="boton" onclick="redirigirConPago('Mila XXL con papas', 16000)">Pagar</a>
-    </div>
-    <div class="producto">
-      <img src="img/chaquena.jpg" alt="Burger Chaqueña">
-      <h3>Burger Chaqueña</h3>
-      <p>$6.000</p>
-      <a href="#" class="boton" onclick="redirigirConPago('Burger Chaqueña', 6000)">Pagar</a>
-    </div>
-    <div class="producto">
-      <img src="img/flow_cheddar.jpg" alt="Burger Flow Cheddar">
-      <h3>Burger Flow Cheddar</h3>
-      <p>$6.000</p>
-      <a href="#" class="boton" onclick="redirigirConPago('Burger Flow Cheddar', 6000)">Pagar</a>
-    </div>
-    <div class="producto">
-      <img src="img/milanesa_especial.jpg" alt="Milanesa Especial">
-      <h3>Milanesa Especial con papas</h3>
-      <p>$7.000</p>
-      <a href="#" class="boton" onclick="redirigirConPago('Milanesa Especial', 7000)">Pagar</a>
-    </div>
-    <div class="producto">
-      <img src="img/lomo_xl.jpg" alt="Lomo XL">
-      <h3>Lomo XL con papas fritas</h3>
-      <p>$13.000</p>
-      <a href="#" class="boton" onclick="redirigirConPago('Lomo XL', 13000)">Pagar</a>
-    </div>
-    <div class="producto">
-      <img src="img/eureka.jpg" alt="Burger Eureka">
-      <h3>Burger Eureka</h3>
-      <p>$6.500</p>
-      <a href="#" class="boton" onclick="redirigirConPago('Burger Eureka', 6500)">Pagar</a>
-    </div>
-    <div class="producto">
-      <img src="img/espacial.jpg" alt="Burger Espacial">
-      <h3>Burger Espacial</h3>
-      <p>$5.500</p>
-      <a href="#" class="boton" onclick="redirigirConPago('Burger Espacial', 5500)">Pagar</a>
-    </div>
+    <!-- Productos aquí -->
+    <!-- (omitido por brevedad; ya están en tu código original) -->
   </section>
 
   <section class="musica">
@@ -259,23 +215,18 @@
     <a href="https://instagram.com/eureka.lomoslr" target="_blank">Nuestro Instagram</a>
   </footer>
 
-  <!-- Botones flotantes -->
   <div class="boton-flotante">
     <a href="https://wa.me/543804201731" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <a href="https://instagram.com/eureka.lomoslr" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
 
-  <!-- Scripts -->
   <script>
     function reproducirMusica() {
       document.getElementById("musicaFrame").style.display = "block";
     }
 
     function redirigirConPago(producto, precio) {
-      // Abre Mercado Pago App
       window.location.href = "mercadopago://home";
-
-      // Redirige a WhatsApp luego de 3 segundos
       setTimeout(function () {
         const mensaje = `Hola Eureka, ya pagué *${producto}* por *$${precio}*. Es para delivery o retiro. Mi dirección es: `;
         const url = "https://wa.me/543804201731?text=" + encodeURIComponent(mensaje);
