@@ -8,7 +8,6 @@
   <!-- Íconos Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Estilos CSS embebidos -->
   <style>
     * {
       margin: 0;
@@ -17,45 +16,52 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #000;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
       color: #fff;
       line-height: 1.6;
     }
 
     header {
-      background: #fff;
-      color: #000;
-      padding: 20px;
+      background-color: #fff;
       text-align: center;
+      padding: 30px 20px;
     }
 
     header img {
-      max-height: 140px;
+      max-width: 200px;
+      height: auto;
       margin-bottom: 10px;
     }
 
-    header h1,
+    header h1 {
+      color: #000;
+      font-size: 32px;
+      margin-bottom: 5px;
+    }
+
     header p {
       color: #000;
+      font-size: 18px;
     }
 
     .menu {
-      padding: 20px;
+      padding: 30px 20px;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 20px;
+      justify-content: center;
     }
 
     .producto {
       background: #1a1a1a;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
-      padding: 15px;
+      color: #fff;
+      border-radius: 12px;
       width: 280px;
+      padding: 15px;
       text-align: center;
-      transition: transform 0.2s ease-in-out;
+      box-shadow: 0 0 10px #111;
+      transition: transform 0.3s ease;
     }
 
     .producto:hover {
@@ -65,44 +71,73 @@
     .producto img {
       width: 100%;
       border-radius: 10px;
+      margin-bottom: 10px;
     }
 
     .producto h3 {
-      margin: 10px 0 5px 0;
-      color: #fff;
+      margin-bottom: 5px;
+      font-size: 20px;
     }
 
     .producto p {
       font-weight: bold;
       margin-bottom: 10px;
-      color: #ffeb3b;
     }
 
     .boton {
-      display: inline-block;
-      background: #2e7d32;
+      background-color: #4caf50;
       color: white;
       padding: 10px 15px;
       text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
+      border-radius: 8px;
+      display: inline-block;
+      transition: background 0.3s ease;
     }
 
     .boton:hover {
-      background: #1b5e20;
+      background-color: #388e3c;
+    }
+
+    .musica {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .musica h2 {
+      margin-bottom: 15px;
+    }
+
+    .play-musica {
+      background: #d84315;
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .play-musica:hover {
+      background: #bf360c;
+    }
+
+    iframe {
+      margin-top: 20px;
+      display: none;
+      border-radius: 15px;
     }
 
     footer {
-      background: #111;
-      color: white;
+      background-color: #111;
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px;
+      color: #ccc;
     }
 
     footer a {
       color: #4fc3f7;
-      margin: 0 10px;
       text-decoration: none;
+      margin: 0 10px;
     }
 
     footer a:hover {
@@ -124,9 +159,9 @@
       color: white;
       padding: 15px;
       border-radius: 50%;
-      font-size: 30px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease;
+      font-size: 26px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+      text-align: center;
     }
 
     .boton-flotante a.instagram {
@@ -134,81 +169,85 @@
     }
 
     .boton-flotante a:hover {
-      background-color: #128C7E;
-    }
-
-    .boton-flotante a.instagram:hover {
-      background-color: #C13584;
-    }
-
-    .musica {
-      text-align: center;
-      margin: 30px 0;
-    }
-
-    .musica iframe {
-      border-radius: 15px;
-      max-width: 100%;
-      display: none;
-    }
-
-    .play-musica {
-      background: #d84315;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .play-musica:hover {
-      background: #bf360c;
+      filter: brightness(1.2);
     }
 
     @media (max-width: 768px) {
       .producto {
         width: 100%;
-        margin: 10px 0;
       }
 
       header h1 {
         font-size: 24px;
       }
 
-      .menu {
-        display: block;
-      }
-
-      .boton-flotante {
-        bottom: 10px;
-        right: 10px;
+      header img {
+        max-width: 150px;
       }
     }
   </style>
 </head>
-
 <body>
+
   <header>
-    <img src="img/logo.png" alt="Logo de Eureka" class="logo">
+    <img src="img/logo.png" alt="Logo de Eureka">
     <h1>Bienvenido a Eureka</h1>
     <p>¡Sabores Callejeros que conquistan🔥!</p>
   </header>
 
   <section class="menu">
-    <!-- Productos aquí -->
-    <!-- (omitido por brevedad; ya están en tu código original) -->
+    <div class="producto">
+      <img src="img/mila_xxl.jpg" alt="Mila XXL">
+      <h3>Mila XXL con papas</h3>
+      <p>$16.000</p>
+      <a href="#" class="boton" onclick="redirigirConPago('Mila XXL con papas', 16000)">Pagar</a>
+    </div>
+    <div class="producto">
+      <img src="img/chaquena.jpg" alt="Burger Chaqueña">
+      <h3>Burger Chaqueña</h3>
+      <p>$6.000</p>
+      <a href="#" class="boton" onclick="redirigirConPago('Burger Chaqueña', 6000)">Pagar</a>
+    </div>
+    <div class="producto">
+      <img src="img/flow_cheddar.jpg" alt="Burger Flow Cheddar">
+      <h3>Burger Flow Cheddar</h3>
+      <p>$6.000</p>
+      <a href="#" class="boton" onclick="redirigirConPago('Burger Flow Cheddar', 6000)">Pagar</a>
+    </div>
+    <div class="producto">
+      <img src="img/milanesa_especial.jpg" alt="Milanesa Especial">
+      <h3>Milanesa Especial con papas</h3>
+      <p>$7.000</p>
+      <a href="#" class="boton" onclick="redirigirConPago('Milanesa Especial', 7000)">Pagar</a>
+    </div>
+    <div class="producto">
+      <img src="img/lomo_xl.jpg" alt="Lomo XL">
+      <h3>Lomo XL con papas fritas</h3>
+      <p>$13.000</p>
+      <a href="#" class="boton" onclick="redirigirConPago('Lomo XL', 13000)">Pagar</a>
+    </div>
+    <div class="producto">
+      <img src="img/eureka.jpg" alt="Burger Eureka">
+      <h3>Burger Eureka</h3>
+      <p>$6.500</p>
+      <a href="#" class="boton" onclick="redirigirConPago('Burger Eureka', 6500)">Pagar</a>
+    </div>
+    <div class="producto">
+      <img src="img/espacial.jpg" alt="Burger Espacial">
+      <h3>Burger Espacial</h3>
+      <p>$5.500</p>
+      <a href="#" class="boton" onclick="redirigirConPago('Burger Espacial', 5500)">Pagar</a>
+    </div>
   </section>
 
   <section class="musica">
     <h2>¡Ponete en modo Eureka!</h2>
     <button class="play-musica" onclick="reproducirMusica()">Reproducir música</button>
-    <br><br>
     <iframe id="musicaFrame" width="300" height="200" src="https://www.youtube.com/embed/nJ7-vHekCqM?si=3JOrpQ8sLeDF3NT7&autoplay=1&loop=1&playlist=nJ7-vHekCqM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </section>
 
   <footer>
-    <p><strong>Dirección del local:</strong> Barrio Hospital sector 4, calle Puerto Argentino</p>
+    <p><strong>Dirección:</strong> Barrio Hospital sector 4, calle Puerto Argentino</p>
     <p><strong>Alias para pagos:</strong> Eureka123</p>
     <p>Una vez que realices el pago, enviá tu comprobante por WhatsApp indicando si es para delivery o retiro, y tu ubicación si corresponde.</p>
     <a href="https://wa.me/543804201731" target="_blank">Contactar por WhatsApp</a> |
@@ -234,5 +273,6 @@
       }, 3000);
     }
   </script>
+
 </body>
 </html>
