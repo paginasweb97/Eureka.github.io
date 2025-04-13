@@ -2,290 +2,67 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Eureka Comidas Rápidas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+  <title>Eureka Comidas Rápidas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script>
+    function enviarComprobante(producto) {
+      const mensaje = `Hola! Acabo de pagar el producto: ${producto}. ¿Puedo enviarte el comprobante?`;
+      const numero = '3804201731';
+      window.open(`https://wa.me/54${numero}?text=${encodeURIComponent(mensaje)}`, '_blank');
     }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #fff;
-      color: #000;
-      padding: 20px;
-      text-align: center;
-    }
-
-    header img {
-      max-height: 140px;
-      margin-bottom: 10px;
-    }
-
-    .menu {
-      padding: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .producto {
-      background: #1a1a1a;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.1);
-      padding: 15px;
-      width: 280px;
-      text-align: center;
-      transition: transform 0.2s ease-in-out;
-    }
-
-    .producto:hover {
-      transform: scale(1.05);
-    }
-
-    .producto img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .producto h3 {
-      margin: 10px 0 5px 0;
-    }
-
-    .producto p {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .boton {
-      display: inline-block;
-      background: #2e7d32;
-      color: white;
-      padding: 10px 15px;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-
-    .boton:hover {
-      background: #1b5e20;
-    }
-
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    footer a {
-      color: #4fc3f7;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    .boton-flotante {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .boton-flotante a {
-      background-color: #25D366;
-      color: white;
-      padding: 15px;
-      border-radius: 50%;
-      font-size: 30px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease;
-    }
-
-    .boton-flotante a.instagram {
-      background-color: #E4405F;
-    }
-
-    .boton-flotante a:hover {
-      background-color: #128C7E;
-    }
-
-    .boton-flotante a.instagram:hover {
-      background-color: #C13584;
-    }
-
-    .musica {
-      text-align: center;
-      margin: 30px 0;
-    }
-
-    .musica iframe {
-      border-radius: 15px;
-      max-width: 100%;
-      display: none;
-    }
-
-    .play-musica {
-      background: #d84315;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .play-musica:hover {
-      background: #bf360c;
-    }
-
-    .reseñas {
-      background: #1a1a1a;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .reseñas h2 {
-      margin-bottom: 10px;
-    }
-
-    .reseñas textarea {
-      width: 100%;
-      max-width: 600px;
-      height: 80px;
-      border-radius: 8px;
-      padding: 10px;
-      border: none;
-      margin-bottom: 10px;
-    }
-
-    .reseñas button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background: #2e7d32;
-      color: white;
-      cursor: pointer;
-    }
-
-    .reseñas button:hover {
-      background: #1b5e20;
-    }
-
-    .lista-reseñas {
-      margin-top: 20px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: left;
-    }
-
-    .reseña {
-      background: #2a2a2a;
-      padding: 10px;
-      border-radius: 8px;
-      margin-bottom: 10px;
-    }
-
-    @media (max-width: 768px) {
-      .producto {
-        width: 100%;
-      }
-
-      .menu {
-        flex-direction: column;
-      }
-
-      .boton-flotante {
-        bottom: 10px;
-        right: 10px;
-      }
-    }
-  </style>
+  </script>
 </head>
 <body>
   <header>
-    <img src="img/logo.png" alt="Logo de Eureka" />
-    <h1>Bienvenido a Eureka</h1>
-    <p>¡Sabores Callejeros que conquistan🔥!</p>
+    <img src="img/logo.png" alt="Logo Eureka" class="logo" />
+    <h1>Eureka Comidas Rápidas</h1>
+    <p class="direccion">Barrio Hospital - Sector 4 - Calle Puerto Argentino</p>
   </header>
-
-  <section class="menu">
-    <div class="producto"><img src="img/mila_xxl.jpg" alt="Mila XXL"><h3>Mila XXL con papas</h3><p>$16.000</p><a href="#" class="boton" onclick="redirigirConPago('Mila XXL con papas', 16000)">Pagar</a></div>
-    <div class="producto"><img src="img/chaquena.jpg" alt="Burger Chaqueña"><h3>Burger Chaqueña</h3><p>$6.000</p><a href="#" class="boton" onclick="redirigirConPago('Burger Chaqueña', 6000)">Pagar</a></div>
-    <div class="producto"><img src="img/flow_cheddar.jpg" alt="Burger Flow Cheddar"><h3>Burger Flow Cheddar</h3><p>$6.000</p><a href="#" class="boton" onclick="redirigirConPago('Burger Flow Cheddar', 6000)">Pagar</a></div>
-    <div class="producto"><img src="img/milanesa_especial.jpg" alt="Milanesa Especial"><h3>Milanesa Especial con papas</h3><p>$7.000</p><a href="#" class="boton" onclick="redirigirConPago('Milanesa Especial', 7000)">Pagar</a></div>
-    <div class="producto"><img src="img/lomo_xl.jpg" alt="Lomo XL"><h3>Lomo XL con papas fritas</h3><p>$13.000</p><a href="#" class="boton" onclick="redirigirConPago('Lomo XL', 13000)">Pagar</a></div>
-    <div class="producto"><img src="img/eureka.jpg" alt="Burger Eureka"><h3>Burger Eureka</h3><p>$6.500</p><a href="#" class="boton" onclick="redirigirConPago('Burger Eureka', 6500)">Pagar</a></div>
-    <div class="producto"><img src="img/espacial.jpg" alt="Burger Espacial"><h3>Burger Espacial</h3><p>$5.500</p><a href="#" class="boton" onclick="redirigirConPago('Burger Espacial', 5500)">Pagar</a></div>
-  </section>
-
-  <section class="musica">
-    <h2>¡Ponete en modo Eureka!</h2>
-    <button class="play-musica" onclick="reproducirMusica()">Reproducir música</button>
-    <br><br>
-    <iframe id="musicaFrame" width="300" height="200" src="https://www.youtube.com/embed/nJ7-vHekCqM?autoplay=1&loop=1&playlist=nJ7-vHekCqM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </section>
-
-  <section class="reseñas">
-    <h2>Dejanos tu reseña</h2>
-    <textarea id="inputReseña" placeholder="¿Qué te pareció nuestra comida?"></textarea><br />
-    <button onclick="agregarReseña()">Enviar</button>
-    <div class="lista-reseñas" id="listaReseñas"></div>
-  </section>
+  
+  <main>
+    <section class="productos">
+      <div class="producto">
+        <img src="img/mila.jpg" alt="Mila XXL con Papas" />
+        <h2>Mila XXL con Papas</h2>
+        <p>$16.000</p>
+        <button onclick="enviarComprobante('Mila XXL con Papas')">Pagar</button>
+      </div>
+      <div class="producto">
+        <img src="img/chaquena.jpg" alt="Burger Chaqueña" />
+        <h2>Burger Chaqueña</h2>
+        <p>$6.000</p>
+        <button onclick="enviarComprobante('Burger Chaqueña')">Pagar</button>
+      </div>
+      <div class="producto">
+        <img src="img/lomo.jpg" alt="Lomo XL con Papas" />
+        <h2>Lomo XL con Papas</h2>
+        <p>Promo 2x $13.000</p>
+        <button onclick="enviarComprobante('Lomo XL con Papas')">Pagar</button>
+      </div>
+      <div class="producto">
+        <img src="img/burger.jpg" alt="Burger Eureka" />
+        <h2>Burger Eureka</h2>
+        <p>$6.500</p>
+        <button onclick="enviarComprobante('Burger Eureka')">Pagar</button>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p><strong>Dirección del local:</strong> Barrio Hospital sector 4, calle Puerto Argentino</p>
-    <p><strong>Alias para pagos:</strong> Eureka123</p>
-    <p>Una vez que realices el pago, enviá tu comprobante por WhatsApp indicando si es para delivery o retiro, y tu ubicación si corresponde.</p>
-    <a href="https://wa.me/543804201731" target="_blank">Contactar por WhatsApp</a> |
-    <a href="https://instagram.com/eureka.lomoslr" target="_blank">Nuestro Instagram</a>
+    <div class="redes">
+      <a href="https://wa.me/543804201731" target="_blank"><img src="img/whatsapp.png" alt="WhatsApp" /></a>
+      <a href="https://instagram.com/eureka.lomoslr" target="_blank"><img src="img/instagram.png" alt="Instagram" /></a>
+    </div>
+    <p>&copy; 2025 Eureka Comidas Rápidas</p>
   </footer>
 
-  <div class="boton-flotante">
-    <a href="https://wa.me/543804201731" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://instagram.com/eureka.lomoslr" class="instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-  </div>
-
-  <script>
-    function reproducirMusica() {
-      document.getElementById("musicaFrame").style.display = "block";
-    }
-
-    function redirigirConPago(producto, precio) {
-      window.location.href = "mercadopago://home";
-      setTimeout(() => {
-        const mensaje = `Hola Eureka, ya pagué *${producto}* por *$${precio}*. Es para delivery o retiro. Mi dirección es: `;
-        window.open("https://wa.me/543804201731?text=" + encodeURIComponent(mensaje), "_blank");
-      }, 3000);
-    }
-
-    function agregarReseña() {
-      const texto = document.getElementById("inputReseña").value.trim();
-      if (texto) {
-        const contenedor = document.getElementById("listaReseñas");
-        const div = document.createElement("div");
-        div.className = "reseña";
-        div.textContent = texto;
-        contenedor.prepend(div);
-        document.getElementById("inputReseña").value = "";
-      }
-    }
-  </script>
+  <audio autoplay loop>
+    <source src="https://www.youtube.com/embed/kXYiU_JCYtU" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
 </body>
 </html>
