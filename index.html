@@ -2,67 +2,145 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eureka Comidas Rápidas</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script>
-    function enviarComprobante(producto) {
-      const mensaje = `Hola! Acabo de pagar el producto: ${producto}. ¿Puedo enviarte el comprobante?`;
-      const numero = '3804201731';
-      window.open(`https://wa.me/54${numero}?text=${encodeURIComponent(mensaje)}`, '_blank');
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eureka Local</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff;
+      color: #111;
     }
-  </script>
+    header {
+      background-color: #000;
+      padding: 1em;
+      text-align: center;
+    }
+    header img {
+      width: 120px;
+    }
+    section {
+      padding: 2em 1em;
+      max-width: 960px;
+      margin: auto;
+    }
+    h2 {
+      border-bottom: 2px solid #d4af37;
+      padding-bottom: 0.5em;
+      color: #d4af37;
+    }
+    .menu-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1em;
+    }
+    .menu-box {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1em;
+      background-color: #f9f9f9;
+    }
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1em;
+    }
+    .galeria img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    .whatsapp {
+      display: inline-block;
+      background-color: #25D366;
+      color: white;
+      padding: 1em 2em;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 1em;
+      font-weight: bold;
+    }
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <img src="img/logo.png" alt="Logo Eureka" class="logo" />
-    <h1>Eureka Comidas Rápidas</h1>
-    <p class="direccion">Barrio Hospital - Sector 4 - Calle Puerto Argentino</p>
-  </header>
-  
-  <main>
-    <section class="productos">
-      <div class="producto">
-        <img src="img/mila.jpg" alt="Mila XXL con Papas" />
-        <h2>Mila XXL con Papas</h2>
-        <p>$16.000</p>
-        <button onclick="enviarComprobante('Mila XXL con Papas')">Pagar</button>
-      </div>
-      <div class="producto">
-        <img src="img/chaquena.jpg" alt="Burger Chaqueña" />
-        <h2>Burger Chaqueña</h2>
-        <p>$6.000</p>
-        <button onclick="enviarComprobante('Burger Chaqueña')">Pagar</button>
-      </div>
-      <div class="producto">
-        <img src="img/lomo.jpg" alt="Lomo XL con Papas" />
-        <h2>Lomo XL con Papas</h2>
-        <p>Promo 2x $13.000</p>
-        <button onclick="enviarComprobante('Lomo XL con Papas')">Pagar</button>
-      </div>
-      <div class="producto">
-        <img src="img/burger.jpg" alt="Burger Eureka" />
-        <h2>Burger Eureka</h2>
-        <p>$6.500</p>
-        <button onclick="enviarComprobante('Burger Eureka')">Pagar</button>
-      </div>
-    </section>
-  </main>
 
-  <footer>
-    <div class="redes">
-      <a href="https://wa.me/543804201731" target="_blank"><img src="img/whatsapp.png" alt="WhatsApp" /></a>
-      <a href="https://instagram.com/eureka.lomoslr" target="_blank"><img src="img/instagram.png" alt="Instagram" /></a>
+<header>
+  <img src="logo.png" alt="Eureka Logo">
+</header>
+
+<section>
+  <h2>Menú</h2>
+  <div class="menu-section">
+    <div class="menu-box">
+      <h3>Lomos</h3>
+      <p>Lomo Especial - $7.000</p>
+      <p>Lomo Eureka - $8.000</p>
+      <p>Lomo Cheddar - $8.000</p>
+      <p>Lomo XL - $13.000</p>
+      <p>Lomo XXL - $16.000</p>
     </div>
-    <p>&copy; 2025 Eureka Comidas Rápidas</p>
-  </footer>
+    <div class="menu-box">
+      <h3>Milanesas</h3>
+      <p>Milanesa Especial - $7.000</p>
+      <p>Milanesa Eureka - $8.000</p>
+      <p>Milanesa Cheddar - $8.000</p>
+      <p>Milanesa XL - $13.000</p>
+      <p>Milanesa XXL - $16.000</p>
+    </div>
+    <div class="menu-box">
+      <h3>Burgers</h3>
+      <p>Eureka - $6.500 / Doble $7.500</p>
+      <p>Flow Cheddar - $6.000 / Doble $7.000</p>
+      <p>Chaqueño - $6.000 / Doble $7.000</p>
+      <p>Barbacoa - $6.000 / Doble $7.000</p>
+      <p>Espacial - $5.500 / Doble $6.000</p>
+      <p>Cheese - $5.000 / Doble $6.000</p>
+    </div>
+    <div class="menu-box">
+      <h3>Papas Fritas</h3>
+      <p>Clásicas - $4.000</p>
+      <p>Salchipapas - $4.500</p>
+      <p>Cheddar - $5.000</p>
+      <p>Revueltas - $5.000</p>
+      <p>Gratinadas - $5.000</p>
+      <p>Caballo - $5.000</p>
+    </div>
+  </div>
+</section>
 
-  <audio autoplay loop>
-    <source src="https://www.youtube.com/embed/kXYiU_JCYtU" type="audio/mpeg">
-    Tu navegador no soporta audio.
-  </audio>
+<section>
+  <h2>Pedidos</h2>
+  <a href="https://wa.me/5493804378337" class="whatsapp"><i class="fab fa-whatsapp"></i> Pedir por WhatsApp</a>
+</section>
+
+<section>
+  <h2>Ubicación</h2>
+  <iframe src="https://maps.google.com/maps?q=https://maps.app.goo.gl/XwEJc6qqPVdrpsjg6&output=embed" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+<section>
+  <h2>Galería</h2>
+  <div class="galeria">
+    <img src="img1.jpg" alt="Comida 1">
+    <img src="img2.jpg" alt="Comida 2">
+    <img src="img3.jpg" alt="Comida 3">
+    <img src="img4.jpg" alt="Comida 4">
+    <img src="img5.jpg" alt="Comida 5">
+    <img src="img6.jpg" alt="Comida 6">
+  </div>
+</section>
+
+<footer>
+  Seguinos en Instagram: <strong>@eureka.local</strong> | WhatsApp: 3804378337
+</footer>
+
 </body>
 </html>
